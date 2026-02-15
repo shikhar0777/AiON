@@ -100,6 +100,8 @@ cd apps/web && npm install && npm run dev
 | OpenAI | `OPENAI_KEY` | Optional | Pay-as-you-go |
 | Anthropic | `ANTHROPIC_KEY` | Optional | Pay-as-you-go |
 | Perplexity | `PERPLEXITY_KEY` | Optional | Pay-as-you-go |
+| Hygen | `PHYGEN_KEY` | Optional | Pay-as-you-go |
+
 
 **The platform works with zero API keys** — GDELT provides free global news data, and AI features gracefully degrade to deterministic summaries.
 
