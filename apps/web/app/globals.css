@@ -1,0 +1,395 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f7f7f7;
+  --color-bg-tertiary: #f0f0f0;
+  --color-bg-inverse: #121212;
+  --color-accent: #121212;
+  --color-accent-hover: #333333;
+  --color-text-primary: #121212;
+  --color-text-secondary: #5a5a5a;
+  --color-text-tertiary: #999999;
+  --color-border: #e2e2e2;
+  --color-border-strong: #ccc;
+  --color-border-rule: #121212;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-headline: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Libre Baskerville", Georgia, "Times New Roman", serif;
+}
+
+body {
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* -- Scrollbar ---------------------------------------------- */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-border-strong); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #999; }
+
+/* -- Animations --------------------------------------------- */
+@keyframes pulse-live {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.animate-pulse-live {
+  animation: pulse-live 2s ease-in-out infinite;
+}
+
+/* -- NYT Masthead ------------------------------------------- */
+.masthead-title {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+/* -- NYT Section Nav ---------------------------------------- */
+.section-nav-item {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 12px;
+  color: var(--color-text-secondary);
+  border-bottom: 2px solid transparent;
+  transition: all 120ms ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.section-nav-item:hover {
+  color: var(--color-text-primary);
+}
+.section-nav-item.active {
+  color: var(--color-text-primary);
+  font-weight: 600;
+  border-bottom-color: var(--color-text-primary);
+}
+
+/* -- Headline typography ------------------------------------ */
+.headline-xl {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  color: var(--color-text-primary);
+}
+.headline-lg {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+}
+.headline-md {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  color: var(--color-text-primary);
+}
+.headline-sm {
+  font-family: var(--font-headline);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.25;
+  color: var(--color-text-primary);
+}
+
+/* -- Body text (serif) -------------------------------------- */
+.body-serif {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+}
+
+/* -- Kicker label ------------------------------------------- */
+.kicker {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+}
+
+/* -- Chip active (selected category) ------------------------ */
+.chip-active {
+  background: var(--color-bg-inverse);
+  color: #ffffff;
+  border-color: var(--color-bg-inverse);
+}
+
+/* -- Primary button ----------------------------------------- */
+.btn-primary {
+  background: var(--color-bg-inverse);
+  color: #ffffff;
+  font-weight: 500;
+  transition: background 150ms ease;
+}
+.btn-primary:hover {
+  background: var(--color-accent-hover);
+}
+
+/* -- Editorial rules / dividers ----------------------------- */
+.rule {
+  border: none;
+  border-top: 1px solid var(--color-border);
+}
+.rule-strong {
+  border: none;
+  border-top: 3px solid var(--color-text-primary);
+}
+.rule-double {
+  border: none;
+  border-top: 3px double var(--color-text-primary);
+}
+
+/* -- NYT-style hover underline ------------------------------ */
+.nyt-hover:hover .nyt-headline {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+/* -- Selection highlight ------------------------------------ */
+::selection {
+  background: var(--color-bg-inverse);
+  color: #fff;
+}
+
+/* -- AI Tabs ------------------------------------------------ */
+.ai-tabs {
+  display: flex;
+  border-bottom: 2px solid var(--color-border);
+  gap: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.ai-tabs::-webkit-scrollbar { display: none; }
+
+.ai-tab {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 12px 16px;
+  color: var(--color-text-tertiary);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 150ms ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.ai-tab:hover {
+  color: var(--color-text-primary);
+}
+.ai-tab.active {
+  color: var(--color-text-primary);
+  border-bottom-color: var(--color-text-primary);
+}
+
+.ai-tab .provider-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.ai-tab .provider-dot.claude { background: #d97706; }
+.ai-tab .provider-dot.openai { background: #10a37f; }
+.ai-tab .provider-dot.perplexity { background: #6366f1; }
+
+/* -- AI Provider Badge -------------------------------------- */
+.provider-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+.provider-badge.claude {
+  background: #fffbeb;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+.provider-badge.openai {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+.provider-badge.perplexity {
+  background: #eef2ff;
+  color: #3730a3;
+  border: 1px solid #c7d2fe;
+}
+
+/* -- Chat Messages ------------------------------------------ */
+.chat-bubble-user {
+  background: var(--color-bg-inverse);
+  color: #fff;
+  border-radius: 16px 16px 4px 16px;
+  padding: 10px 16px;
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 85%;
+}
+.chat-bubble-ai {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 16px 16px 16px 4px;
+  padding: 12px 16px;
+  font-size: 14px;
+  line-height: 1.65;
+  max-width: 90%;
+  color: var(--color-text-primary);
+}
+.chat-bubble-ai p {
+  margin-bottom: 8px;
+}
+.chat-bubble-ai p:last-child {
+  margin-bottom: 0;
+}
+
+/* -- Suggested Question Chips ------------------------------- */
+.suggestion-chip {
+  font-size: 13px;
+  padding: 8px 14px;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  background: var(--color-bg-primary);
+  cursor: pointer;
+  transition: all 150ms ease;
+  border-radius: 20px;
+}
+.suggestion-chip:hover {
+  border-color: var(--color-text-primary);
+  color: var(--color-text-primary);
+  background: var(--color-bg-secondary);
+}
+
+/* -- Timeline ------------------------------------------------ */
+.timeline-line {
+  position: absolute;
+  left: 7px;
+  top: 20px;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-border);
+}
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-bg-inverse);
+  border: 3px solid var(--color-bg-primary);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* -- World Marquee ------------------------------------------ */
+@keyframes world-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.world-marquee-mask {
+  overflow: hidden;
+  width: 100%;
+  min-width: 0;
+}
+
+.world-marquee-track {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 20px;
+  width: max-content;
+  white-space: nowrap;
+  animation-name: world-marquee-scroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+.world-marquee-mask:hover .world-marquee-track {
+  animation-play-state: paused;
+}
+
+.world-marquee-item {
+  display: inline-flex;
+  flex: 0 0 auto;
+  min-width: max-content;
+  align-items: baseline;
+  gap: 8px;
+  color: var(--color-text-secondary);
+  transition: color 120ms ease;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.world-marquee-item:hover {
+  color: var(--color-text-primary);
+}
+
+.world-marquee-title {
+  font-size: 13px;
+  font-family: var(--font-body);
+  line-height: 1.3;
+}
+
+.world-marquee-meta {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-tertiary);
+}
+
+/* -- Floating Chat Widget ----------------------------------- */
+@keyframes chat-widget-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.chat-widget-panel {
+  animation: chat-widget-in 200ms ease-out;
+}
+
+/* -- Breaking News Pulse ------------------------------------ */
+@keyframes breaking-pulse {
+  0%, 100% { background-color: #dc2626; }
+  50% { background-color: #991b1b; }
+}
+.breaking-badge {
+  animation: breaking-pulse 1.5s ease-in-out infinite;
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px 6px;
+}
