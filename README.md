@@ -1,4 +1,4 @@
-# AiON — AI-Powered Global News Discovery Platform
+# AiON — AI-Powered Global News Discovery Platform with advance algo and latency
 
 A real-time, multi-source news intelligence platform with AI-powered summaries, trending detection, story clustering, and deep analysis.
 
