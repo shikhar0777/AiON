@@ -284,3 +284,6 @@ CORS_ORIGINS=https://your-frontend.vercel.app
 - **AI**: OpenAI / Anthropic / Perplexity (with failover)
 - **Real-time**: Server-Sent Events (SSE) via Redis pub/sub
 - **News Sources**: NewsAPI + Guardian + GDELT (free fallback)
+
+  ```
+  MadeWithLove❤️
